@@ -1,4 +1,9 @@
-# Install Shiny Server on Raspberry Pi
+# Install Shiny Server on Raspberry Pi 4
+#### 8GB RAM
+#### 128GB SD card
+#### Update from 21 Feb 2025 
+#### Updated by thinh
+
 ## Install dependencies and reboot
 sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev libcairo2-dev
 
