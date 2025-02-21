@@ -44,6 +44,10 @@ install.packages("Cairo")
 
 install.packages("shiny")
 
+## Intall libssl-dev for cmake
+sudo apt-get install libssl-dev
+
+
 ## Install cmake 4.0
 
 wget https://github.com/Kitware/CMake/releases/download/v4.0.0-rc1/cmake-4.0.0-rc1.tar.gz
