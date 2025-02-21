@@ -1,4 +1,5 @@
 # Install Shiny Server on Raspberry Pi 4
+${\textsf{\color{blue}System information:}}$
 ```
 8GB RAM
 128GB SD card
@@ -10,16 +11,17 @@ Updated by thinh
 ```sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev libcairo2-dev```
 
 ## Install R
-First update all your sources:  
+${\textsf{\color{blue}First update all your sources:}}$  
 ```sudo apt update```  
 
-Next, install any updates that are available:   
+${\textsf{\color{blue}Next, install any updates that are available:}}$    
 ```sudo apt upgrade```  
 
-Finally, install the r4pi build of R:  
+${\textsf{\color{blue}Finally, install the r4pi build of R:}}$  
+
 ```sudo apt install r4pi```  
 
-You can start R by running:  
+${\textsf{\color{blue}You can start R by running:}}$  
 ```R```
 
 ## Install shiny package
@@ -58,10 +60,10 @@ mkdir tmp
 cd tmp  
 PYTHON=`which python`  
 sudo cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DPYTHON="$PYTHON" ../  
-make
+sudo make
 ```
 
-## Prepare a system for Shiny Server’s default configuration.
+## Prepare a system for Shiny Server’s default configuration
 ```
 sudo ln -s /usr/local/shiny-server/bin/shiny-server /usr/bin/shiny-server  
 sudo useradd -r -m shiny  
@@ -77,7 +79,11 @@ sudo mkdir -p /etc/shiny-server
 cd /etc/shiny-server/  
 sudo wget http://withr.me/misc/shiny-server.conf  
 ```
-Or create an empty file and fill it the content of default.conf
+${\textsf{\color{blue}Or create an empty file and fill it the content of default.conf}}$  
+```
+sudo nano default.conf
+```
+${\textsf{\color{blue}Fill it the content of default.config}}$  
 ```
 # Instruct Shiny Server to run applications as the user "shiny"
 run_as shiny;
@@ -101,8 +107,8 @@ server {
   }
 }
 ```
-## Add your shiny appliations
-Create a demo shiny-app in /srv/shiny-server, [like this](https://shiny.posit.co/r/gallery/start-simple/kmeans-example/)
+## Add your shiny applications
+${\textsf{\color{blue}Create a demo shiny-app in /srv/shiny-server,}}$ [like this](https://shiny.posit.co/r/gallery/start-simple/kmeans-example/)
 ```
 cd /srv/shiny-server
 sudo mkdir kmeans
@@ -111,7 +117,7 @@ sudo wget http://withr.me/misc/kmeans/ui.R
 sudo wget http://withr.me/misc/kmeans/server.R
 ```
 ##### Or create server.R, ui.R and copy these code:
-These code for server.R
+${\textsf{\color{blue}These code for server.R}}$
 ```
 function(input, output, session) {
 
@@ -137,7 +143,7 @@ function(input, output, session) {
 
 }
 ```
-This code for ui.R
+${\textsf{\color{blue}These code for ui.R}}$
 ```
 # k-means only works with numerical variables,
 # so don't give the user the option to select
@@ -162,6 +168,8 @@ sudo chmod 777 -R /srv
 sudo shiny-server
 ```
 
-# Now open your web browser and type: RPi-IP:3838 in its address input.
-```type: ifconfig to know your Raspberry IP
+# Now open your web browser and type: RPi-IP:3838 in its address input
+${\textsf{\color{blue}type: ifconfig to know your Raspberry IP}}$
+```
+ifconfig
 ```
