@@ -35,7 +35,7 @@ install.packages("R6")
 install.packages("Cairo")  
 install.packages("shiny")  
 ```
-## Intall libssl-dev for cmake
+## Install libssl-dev for cmake
 ```sudo apt-get install libssl-dev```
 
 ## Install cmake 4.0
@@ -163,3 +163,5 @@ sudo shiny-server
 ```
 
 # Now open your web browser and type: RPi-IP:3838 in its address input.
+```type: ifconfig to know your Raspberry IP
+```
