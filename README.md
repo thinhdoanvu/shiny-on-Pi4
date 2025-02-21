@@ -156,3 +156,10 @@ pageWithSidebar(
   )
 )
 ```
+## Change file permissions to let Shiny Server get access
+```
+sudo chmod 777 -R /srv
+sudo shiny-server
+```
+
+# Now open your web browser and type: RPi-IP:3838 in its address input.
