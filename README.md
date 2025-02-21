@@ -3,19 +3,17 @@
 sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev libcairo2-dev
 
 ## Install R
-First update all your sources:
+First update all your sources: sudo apt update
 
-sudo apt update
-
-Next, install any updates that are available.
+Next, install any updates that are available: 
 
 sudo apt upgrade
 
-Finally, install the r4pi build of R.
+Finally, install the r4pi build of R: 
 
 sudo apt install r4pi
 
-You can start R by running:
+You can start R by running: 
 
 R
 
