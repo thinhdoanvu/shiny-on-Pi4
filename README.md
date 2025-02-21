@@ -49,7 +49,12 @@ cd cmake-4.0.0-rc1
 make  
 sudo make install
 ```
+## Install NVM, NodeJS
+```
+sudo apt install nodejs npm  
+export PATH=$PATH:/path/to/node  
 
+```
 ## Install Shiny-server
 ```
 git clone https://github.com/rstudio/shiny-server.git  
@@ -61,6 +66,10 @@ cd tmp
 PYTHON=`which python`  
 sudo cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DPYTHON="$PYTHON" ../  
 sudo make
+mkdir ../build  
+(cd .. && ./bin/npm --python="$PYTHON" rebuild)  
+(cd .. && ./bin/node ./ext/node/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js --python="$PYTHON" rebuild)  
+sudo make install  
 ```
 
 ## Prepare a system for Shiny Server’s default configuration
