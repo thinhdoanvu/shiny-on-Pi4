@@ -140,6 +140,32 @@ server {
   }
 }
 ```
+## Configure shiny-server autostart
+```
+sudo chmod 777 -R /srv
+
+# Configure shiny-server autostart 
+sudo nano /lib/systemd/system/shiny-server.service # Paste the following
+    #!/usr/bin/env bash
+    [Unit]
+    Description=ShinyServer
+    [Service]
+    Type=simple
+    ExecStart=/usr/bin/shiny-server
+    Restart=always
+    # Environment="LANG=en_US.UTF-8"
+    ExecReload=/bin/kill -HUP $MAINPID
+    ExecStopPost=/bin/sleep 5
+    RestartSec=1
+    [Install]
+    WantedBy=multi-user.target
+
+sudo chown shiny /lib/systemd/system/shiny-server.service
+sudo systemctl daemon-reload
+sudo systemctl enable shiny-server
+sudo systemctl start shiny-server
+```
+
 ## Add your shiny applications
 ${\textsf{\color{blue}Create a demo shiny-app in /srv/shiny-server,}}$ [like this](https://shiny.posit.co/r/gallery/start-simple/kmeans-example/)
 ```
