@@ -107,16 +107,16 @@ sudo mkdir -p /etc/shiny-server
 cd # return to home directory
 ```
 
-## Create the Shiny Server configure file
+## Create the Shiny Server configure file in /etc/shiny-server
 ```
 cd /etc/shiny-server/  
 sudo wget http://withr.me/misc/shiny-server.conf  
 ```
-${\textsf{\color{blue}Or create an empty file and fill it the content of default.conf}}$  
+${\textsf{\color{blue}Or create an empty file and fill it the content of shiny-server.conf}}$  
 ```
-sudo nano default.conf
+sudo nano shiny-server.conf
 ```
-${\textsf{\color{blue}Fill it the content of default.config}}$  
+${\textsf{\color{blue}Fill it the content of shiny-server.conf}}$  
 ```
 # Instruct Shiny Server to run applications as the user "shiny"
 run_as shiny;
@@ -140,6 +140,41 @@ server {
   }
 }
 ```
+
+## Create the Shiny Server configure file in /etc/init/shiny-server
+```
+sudo mkdir /etc/init  
+sudo nano /etc/init/shiny-server.conf  
+```
+${\textsf{\color{blue} copy these lines into shiny-server.conf}}$  
+```
+# shiny-server.conf
+
+description "Shiny application server"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+limit nofile 1000000 1000000
+
+post-stop exec sleep 3
+
+post-start script
+    i=0
+    while [ $i -lt 5 ]
+    do
+        pgrep "shiny-server" || exit 1
+        sleep 1
+        i=$((i+1))
+    done
+end script 
+  
+exec shiny-server --pidfile=/var/run/shiny-server.pid >> /var/log/shiny-server.log 2>&1
+
+respawn limit 3 30
+
+respawn
+
 ## Configure shiny-server autostart
 ```
 sudo chmod 777 -R /srv
@@ -236,9 +271,18 @@ pageWithSidebar(
 sudo chmod 777 -R /srv
 sudo shiny-server
 ```
+pi@raspberrypi:/srv/shiny-server $ sudo shiny-server  
+[2025-02-28T05:02:27.511] [INFO] shiny-server - Shiny Server v1.5.23.0 (Node.js v20.17.0)  
+[2025-02-28T05:02:27.516] [INFO] shiny-server - Using config file "/etc/shiny-server/shiny-server.conf"  
+[2025-02-28T05:02:27.631] [WARN] shiny-server - Running as root unnecessarily is a security risk! You could be running more securely as non-root.  
+[2025-02-28T05:02:27.647] [INFO] shiny-server - Starting listener on http://[::]:3838  
 
-# Now open your web browser and type: RPi-IP:3838 in its address input
+
+## Now open your web browser and type: RPi-IP:3838 in its address input
 ${\textsf{\color{blue}type: ifconfig to know your Raspberry IP}}$
 ```
 ifconfig
 ```
+inet 192.168.1.6  netmask 255.255.255.0  broadcast 192.168.1.255
+...
+
