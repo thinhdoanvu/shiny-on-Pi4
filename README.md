@@ -165,7 +165,17 @@ sudo systemctl daemon-reload
 sudo systemctl enable shiny-server
 sudo systemctl start shiny-server
 ```
+## Setting up proper user permissions
 
+```
+sudo groupadd shiny-apps
+sudo usermod -aG shiny-apps pi
+sudo usermod -aG shiny-apps shiny
+cd /srv/shiny-server
+sudo chown -R pi:shiny-apps .
+sudo chmod g+w .
+sudo chmod g+s .
+```
 ## Add your shiny applications
 ${\textsf{\color{blue}Create a demo shiny-app in /srv/shiny-server,}}$ [like this](https://shiny.posit.co/r/gallery/start-simple/kmeans-example/)
 ```
