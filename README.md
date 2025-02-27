@@ -19,12 +19,14 @@ ${\textsf{\color{blue}Next, install any updates that are available:}}$
 
 ${\textsf{\color{blue}Finally, install the r4pi build of R:}}$  
 
-```sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev \```  
-                               ```libpng-dev libjpeg-dev libcairo2-dev xvfb \```  
-                               ```libbz2-dev libzstd-dev liblzma-dev \```  
-                               ```libcurl4-openssl-dev \```  
-                               ```texinfo texlive texlive-fonts-extra \```  
-                               ```screen wget libpcre2-dev```  
+```
+sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev \  
+                               libpng-dev libjpeg-dev libcairo2-dev xvfb \  
+                               libbz2-dev libzstd-dev liblzma-dev \  
+                               libcurl4-openssl-dev \  
+                               texinfo texlive texlive-fonts-extra \   
+                               screen wget libpcre2-dev
+```  
 ```cd /usr/local/src```  
 ```sudo wget https://cran.rstudio.com/src/base/R-4/R-4.0.2.tar.gz```  
 ```sudo su```  
@@ -42,19 +44,21 @@ ${\textsf{\color{blue}You can start R by running:}}$
 ```R```
 
 ## Install shiny package
-```sudo su - -c "R -e \"install.packages('later', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('fs', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('Rcpp', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('httpuv', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('mime', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('jsonlite', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('digest', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('htmltools', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('xtable', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('R6', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('Cairo', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('sourcetools', repos='http://cran.rstudio.com/')\""```  
-```sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""```  
+```
+sudo su - -c "R -e \"install.packages('later', repos='http://cran.rstudio.com/')\""   
+sudo su - -c "R -e \"install.packages('fs', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('Rcpp', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('httpuv', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('mime', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('jsonlite', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('digest', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('htmltools', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('xtable', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('R6', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('Cairo', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('sourcetools', repos='http://cran.rstudio.com/')\""  
+sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""  
+```
 
 ## Install libssl-dev for cmake
 ```sudo apt-get install libssl-dev```
@@ -100,6 +104,7 @@ sudo mkdir -p /srv/shiny-server
 sudo mkdir -p /var/lib/shiny-server  
 sudo chown shiny /var/log/shiny-server  
 sudo mkdir -p /etc/shiny-server
+cd # return to home directory
 ```
 
 ## Create the Shiny Server configure file
