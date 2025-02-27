@@ -294,4 +294,6 @@ ifconfig
 ```
 ${\textsf{\color{blue} inet 192.168.1.6  netmask 255.255.255.0  broadcast 192.168.1.255}}$
 ...
-![Example Image](example-image.png)
+## Result:
+
+![run in web browser](figures/kmeans_example.png)
