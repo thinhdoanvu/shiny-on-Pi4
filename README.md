@@ -25,20 +25,20 @@ sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev \
                                libbz2-dev libzstd-dev liblzma-dev \  
                                libcurl4-openssl-dev \  
                                texinfo texlive texlive-fonts-extra \   
-                               screen wget libpcre2-dev
+                               screen wget libpcre2-dev  
+cd /usr/local/src  
+sudo wget https://cran.rstudio.com/src/base/R-4/R-4.0.2.tar.gz  
+sudo su  
+tar zxvf R-4.0.2.tar.gz  
+cd R-4.0.2  
+./configure --enable-R-shlib #--with-blas --with-lapack #optional  
+make  
+make install  
+cd ..  
+rm -rf R-4.0.2*  
+exit   
+cd # return to home directory
 ```  
-```cd /usr/local/src```  
-```sudo wget https://cran.rstudio.com/src/base/R-4/R-4.0.2.tar.gz```  
-```sudo su```  
-```tar zxvf R-4.0.2.tar.gz```  
-```cd R-4.0.2```  
-```./configure --enable-R-shlib #--with-blas --with-lapack #optional```  
-```make```  
-```make install```  
-```cd ..```  
-```rm -rf R-4.0.2*```  
-```exit```  
-```cd # return to home directory```  
 
 ${\textsf{\color{blue}You can start R by running:}}$  
 ```R```
