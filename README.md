@@ -55,7 +55,7 @@ ${\textsf{\color{blue}You can start R by running:}}$
 ```sudo su - -c "R -e \"install.packages('Cairo', repos='http://cran.rstudio.com/')\""```  
 ```sudo su - -c "R -e \"install.packages('sourcetools', repos='http://cran.rstudio.com/')\""```  
 ```sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""```  
-```
+
 ## Install libssl-dev for cmake
 ```sudo apt-get install libssl-dev```
 
